@@ -1,0 +1,41 @@
+.index_nav {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    /* background: red; */
+}
+
+.nav_left {
+    width: 50%;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+}
+
+.nav_right {
+    width: 50%;
+}
+
+.nav_right_ul {
+    display: flex;
+    box-sizing: border-box;
+    margin-left: 100px;
+}
+
+.nav_right_ul span {
+    display: inline-block;
+    padding: 10px 30px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.isActive {
+    color: #fff;
+    background: #F78A3F;
+}
+
+.services-breadcrumb {
+    background: #eee;
+    text-align: center;
+    height: 56px;
+}
