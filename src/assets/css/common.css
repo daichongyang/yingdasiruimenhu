@@ -39,3 +39,54 @@
     text-align: center;
     height: 56px;
 }
+
+.navbar-toggle {
+    border: none;
+    background: #F78A3F;
+    border-radius: 0;
+}
+
+.navbar-toggle {
+    padding: 10px 12px;
+    position: relative;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.icon-bar {
+    background-color: #fff;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    margin-top: 4px
+}
+
+@media screen and (max-width: 500px) {
+    .index_nav {
+        justify-content: space-between;
+        padding: 0 10px;
+        /* display: none; */
+    }
+    .nav_left {
+        font-size: 24px;
+    }
+    .nav_right {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .navbar-toggle {
+        display: none;
+    }
+}

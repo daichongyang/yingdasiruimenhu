@@ -10,7 +10,7 @@
 				<section class="content-box box-style-1 box-2">
 					<div class="zerogrid">
 						<div class="content-box-2">
-					<div class="content_box_2_item" v-for="item in obj" :key="item">
+					<div class="content_box_2_item" v-for="(item,index) in obj" :key="index">
 					  <div class="content_box_2_item_img" :style="{backgroundImage:'url('+item.img+')'}"></div>
 					  <div class="content_box_2_item_text">
 					  <h3>{{item.text}}</h3>
@@ -114,6 +114,11 @@ export default {
     }
   },
   mounted(){
+    let obj = {
+      navActive:2,
+      name:'公园设施'
+    }
+    this.$emit('loackinfor',obj)
     this.getImgList()
   }
 }

@@ -94,6 +94,11 @@ export default {
     }
   },
   mounted(){
+    let obj = {
+      navActive:3,
+      name:'新闻资讯'
+    }
+    this.$emit('loackinfor',obj)
     this.getImgList()
   }
 }

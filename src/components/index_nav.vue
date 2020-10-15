@@ -2,7 +2,7 @@
   <section>
     <div class="index_nav">
       <div class="nav_left">
-        英达斯瑞公园
+        {{navName}}
       </div>
       <div class="nav_right">
         <div class="nav_right_ul">
@@ -13,16 +13,32 @@
           <span :class="{isActive:navActive==5}" @click="changeNav(5)">游玩指引</span>
         </div>
       </div>
+      <button type="button" class="navbar-toggle collapsed" @click="showPopup">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <van-popup v-model="show" position="right" style="width:45%;height:100%">
+        <van-cell title="首页" :class="{isActive:navActive==1}" @click="navName='英达斯瑞公园',changeNav(1)"/>
+        <van-cell title="公园设施" :class="{isActive:navActive==2}" @click="navName='公园设施',changeNav(2)"/>
+        <van-cell title="新闻资讯" :class="{isActive:navActive==3}" @click="navName='新闻资讯',changeNav(3)"/>
+        <van-cell title="周边信息" :class="{isActive:navActive==4}" @click="navName='周边信息',changeNav(4)"/>
+        <van-cell title="游玩指引" :class="{isActive:navActive==5}" @click="navName='游玩指引',changeNav(5)"/>
+      </van-popup>
     </div>
-    <router-view :navActive="navActive"></router-view>
+    <router-view :navActive="navActive" @loackinfor="loackinfor"></router-view>
   </section>
 </template>
 
 <script>
+import { Popup } from 'vant';
 export default {
   data(){
     return{
       navActive:1,
+      show:false,
+      navName:"英达斯瑞公园"
     }
   },
   methods:{
@@ -74,6 +90,14 @@ export default {
         path:'/transportationGuide'
       })
     },
+    showPopup(){
+      this.show = true
+    },
+    loackinfor(val){
+      console.log(val)
+      this.navName = val.name
+      this.navActive = val.navActive
+    }
   },
   mounted(){
 

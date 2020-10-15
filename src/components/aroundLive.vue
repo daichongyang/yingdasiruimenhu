@@ -10,13 +10,12 @@
 				<section class="content-box box-style-1 box-2">
 					<div class="zerogrid">
 						<div class="content-box-2">
-							<div class="content_box_2_item" v-for="item in obj" :key="item">
-							                <div class="content_box_2_item_img" :style="{backgroundImage:'url('+item.img+')'}"></div>
-							                <div class="content_box_2_item_text">
-							                <h3>{{item.text}}</h3>
-							                </div>
-							
-							              </div>
+							<div class="content_box_2_item" v-for="(item,index) in obj" :key="index">
+                <div class="content_box_2_item_img" :style="{backgroundImage:'url('+item.img+')'}"></div>
+                <div class="content_box_2_item_text">
+                  <h3>{{item.text}}</h3>
+                </div>
+              </div>
 						</div>
 					</div>
 				</section>
@@ -94,10 +93,7 @@ export default {
 
         }
       })
-      
-      
       this.images=[
-
         require('../assets/img/智云谷.png'),
         require('../assets/img/智能座椅.png'),
         require('../assets/img/智能垃圾桶.png'),
@@ -125,6 +121,11 @@ export default {
     }
   },
   mounted(){
+    let obj = {
+      navActive:4,
+      name:'周边信息'
+    }
+    this.$emit('loackinfor',obj)
     this.getImgList()
   }
 }
