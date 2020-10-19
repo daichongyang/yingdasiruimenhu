@@ -1,19 +1,19 @@
 <template>
   <section>
     <div class="index_box">
-      <div class="banner_box" style="height:320px;">
+      <!-- <div class="banner_box" style="height:320px;">
         <div class="banner_img" :style="{backgroundImage:'url('+images[0]+')'}">
         </div>
-      </div>
+      </div> -->
       <div class="services-breadcrumb" style="margin-bottom:20px;"></div>
 				<!-----------------content-box-2-------------------->
 				<section class="content-box box-style-1 box-2">
 					<div class="zerogrid">
 						<div class="content-box-2">
-							<div class="content_box_2_item" v-for="(item,index) in obj" :key="index">
-                <div class="content_box_2_item_img" :style="{backgroundImage:'url('+item.img+')'}"></div>
+							<div class="content_box_2_item" v-for="(item,index) in imgList" :key="index">
+                <div class="content_box_2_item_img" :style="{backgroundImage:'url('+item.coverImg+')'}"></div>
                 <div class="content_box_2_item_text">
-                  <h3>{{item.text}}</h3>
+                  <h3>{{item.name}}</h3>
                 </div>
               </div>
 						</div>
@@ -32,50 +32,50 @@ export default {
       showImg:'',
       img_index:1,
       content_box_2_item_img:'',
-       obj:[
+       imgList:[
          {
-           img:require('../assets/img/振业时代花园.png'),
-           text:'AI振业时代花园'
+           coverImg:require('../assets/img/振业时代花园.png'),
+           name:'AI振业时代花园'
          },
          {
-          img:require('../assets/img/易能高新产业园.png'),
-           text:'易能高新产业园'
+          coverImg:require('../assets/img/易能高新产业园.png'),
+           name:'易能高新产业园'
          },
          {
-           img:require('../assets/img/维也纳国际酒店.png'),
-           text:'维也纳国际酒店'
+           coverImg:require('../assets/img/维也纳国际酒店.png'),
+           name:'维也纳国际酒店'
          },
          {
-           img:require('../assets/img/深圳市显控科技股份有限公司.png'),
-           text:'深圳市显控科技股份有限公司'
+           coverImg:require('../assets/img/深圳市显控科技股份有限公司.png'),
+           name:'深圳市显控科技股份有限公司'
          },
          {
-           img:require('../assets/img/深汕特别合作区管委会.png'),
-           text:'深汕特别合作区管委会'
+           coverImg:require('../assets/img/深汕特别合作区管委会.png'),
+           name:'深汕特别合作区管委会'
          },
          {
-           img:require('../assets/img/深汕大道.png'),
-           text:'深汕大道'
+           coverImg:require('../assets/img/深汕大道.png'),
+           name:'深汕大道'
          },
          {
-           img:require('../assets/img/荣耀径.png'),
-           text:'荣耀径'
+           coverImg:require('../assets/img/荣耀径.png'),
+           name:'荣耀径'
          },
          {
-           img:require('../assets/img/辉煌1号.png'),
-           text:'辉煌1号'
+           coverImg:require('../assets/img/辉煌1号.png'),
+           name:'辉煌1号'
          },
          {
-           img:require('../assets/img/广东华西建筑工业化有限公司.png'),
-           text:'广东华西建筑工业化有限公司'
+           coverImg:require('../assets/img/广东华西建筑工业化有限公司.png'),
+           name:'广东华西建筑工业化有限公司'
          },
          {
-           img:require('../assets/img/创业村.png'),
-           text:'创业村'
+           coverImg:require('../assets/img/创业村.png'),
+           name:'创业村'
          },
          {
-           img:require('../assets/img/边溪公园.png'),
-           text:'边溪公园'
+           coverImg:require('../assets/img/边溪公园.png'),
+           name:'边溪公园'
          },
        ],
       seach:{
@@ -87,10 +87,14 @@ export default {
   },
   methods:{
     getImgList(){
-      peripheryList(this.seach).then((res)=>{
+      let pamars={
+        current:1,
+        size:10,
+      }
+      peripheryList(pamars).then((res)=>{
         console.log(res)
         if(res.data.code == 200){
-
+          this.imgList = res.data.data
         }
       })
       this.images=[

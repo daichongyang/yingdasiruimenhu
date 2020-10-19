@@ -21,8 +21,7 @@
               <h2>公园介绍</h2>
             </div>
             <div class="box-content">
-              <p>“智造、智森、智活”——成为了本设计贯穿整体的中心思想，以一环联四谷，双峰领三径的景观轴线打造城市地标性智能化公园。通过打造圳美谷、智云谷、至动谷、至趣谷四大主题谷，点缀山体绿色天际线来塑名片、展特色，加上现代智能化元素，打造智能化游园；通过浅山修复、固本生态和低度介入的方式育山水，创造可持续发展生态环境。
- <br>通过打造圳美谷、智云谷、至动谷、至趣谷四大主题谷，点缀山体绿色天际线来塑名片、展特色，加上现代智能化元素，打造智能化游园；通过浅山修复、固本生态和低度介入的方式育山水，创造可持续发展生态环境。以依山融城、依山造势、依山乐动的设计理念达到联山城，聚人气的多元联动模式。</p>
+              <p>{{intro}}</p>
             </div>
           </div>
         </div>
@@ -76,7 +75,7 @@
 
 <script>
 import { Swipe, SwipeItem,Lazyload } from 'vant';
-import {parkList} from "../url/api"
+import {parkList,facilitiesList} from "../url/api"
 export default {
   data(){
     return{
@@ -123,10 +122,34 @@ export default {
       img_index:1,
       content_box_2_item_img:'',
       images:[],
-      images1:[]
+      images1:[],
+      intro:'',//公园介绍
     }
   },
   methods:{
+    getparkList(){//获取公园介绍
+      let pamars={
+        current:1,
+        size:10,
+      }
+      parkList(pamars).then(res=>{
+        console.log(res)
+        if(res.data.code == 200){
+          this.intro = res.data.data.records[0].intro
+        }
+      })
+    },
+    getfacilitiesList(){//查询智能设施分页列表
+      let pamars={
+        parentId:0,
+      }
+      facilitiesList(pamars).then(res=>{
+        console.log(res)
+        if(res.data.code == 200){
+          
+        }
+      })
+    },
     getImgList(){
       this.images2=[
     "AR互动",
@@ -180,6 +203,8 @@ export default {
     }
   },
   mounted(){
+    this.getparkList()
+    this.getfacilitiesList()
     this.getImgList()
     this.setTime()
   }

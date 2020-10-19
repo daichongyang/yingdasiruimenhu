@@ -12,9 +12,9 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/park': {
-                target: 'http://192.168.0.245:8081/park',
+                // target: 'http://192.168.0.245:8081/park',
                 // target: 'http://192.168.0.196:8081/park',
-                // target: 'http://192.168.0.142:8081/park',
+                target: 'http://192.168.0.143:8082/park',
                 // target: 'http://192.168.0.101:8081/park',
                 // target: 'http://117.78.42.182:8080/park',
                 // target: 'http://www.ubicell.cn:8080/park',

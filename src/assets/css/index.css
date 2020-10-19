@@ -36,7 +36,7 @@
 }
 
 .content-box.box-1 {
-    text-align: center;
+    /* text-align: center; */
 }
 
 .zerogrid {
@@ -285,6 +285,11 @@
     line-height: 43px;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.content_box4_text4 a {
+    display: block;
+    color: #fff;
 }
 
 .content_box5 {

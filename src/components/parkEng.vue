@@ -1,10 +1,10 @@
 <template>
   <section>
     <div class="index_box">
-      <div class="banner_box" style="height:320px;">
+      <!-- <div class="banner_box" style="height:320px;">
         <div class="banner_img" :style="{backgroundImage:'url('+images[5]+')'}">
         </div>
-      </div>
+      </div> -->
       <div class="services-breadcrumb" style="margin-bottom:20px;"></div>
 				<!-----------------content-box-2-------------------->
 				<section class="content-box box-style-1 box-2">
