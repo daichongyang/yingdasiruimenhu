@@ -12,9 +12,9 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/park': {
-                // target: 'http://192.168.0.245:8081/park',
+                target: 'http://192.168.0.245:8081/park',
                 // target: 'http://192.168.0.196:8081/park',
-                target: 'http://192.168.0.143:8082/park',
+                // target: 'http://192.168.0.143:8082/park',
                 // target: 'http://192.168.0.101:8081/park',
                 // target: 'http://117.78.42.182:8080/park',
                 // target: 'http://www.ubicell.cn:8080/park',
@@ -28,7 +28,7 @@ module.exports = {
         },
 
         // Various Dev Server settings
-        host: '192.168.0.187', // can be overwritten by process.env.HOST
+        host: '192.168.0.172', // can be overwritten by process.env.HOST
         port: 8087, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         autoOpenBrowser: false,
         errorOverlay: true,
