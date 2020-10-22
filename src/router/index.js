@@ -7,6 +7,9 @@ import newsZixun from '@/components/newsZixun'
 import aroundLive from '@/components/aroundLive'
 import inforDetail from '@/components/inforDetail'
 import transportationGuide from '@/components/transportationGuide'
+import peripheryInfo from '@/components/peripheryInfo' //公园周边详情
+import touristInfo from '@/components/touristInfo' //公园景点详情信息
+import facilitiesInfo from '@/components/facilitiesInfo' //公园智能设施详情信息
 
 Vue.use(Router)
 
@@ -34,6 +37,21 @@ export default new Router({
                 path: '/aroundLive',
                 name: 'aroundLive',
                 component: aroundLive,
+            },
+            {
+                path: '/peripheryInfo',
+                name: 'peripheryInfo',
+                component: peripheryInfo,
+            },
+            {
+                path: '/touristInfo',
+                name: 'touristInfo',
+                component: touristInfo,
+            },
+            {
+                path: '/facilitiesInfo',
+                name: 'facilitiesInfo',
+                component: facilitiesInfo,
             },
             {
                 path: '/inforDetail',

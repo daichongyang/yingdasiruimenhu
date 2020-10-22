@@ -26,14 +26,13 @@
 </template>
 
 <script>
-import {parkList} from "../url/api"
+import {facilitiesList} from "../url/api"
 export default {
   data(){
     return{
       showImg:'',
       seach:{
-        size:10,
-        current:1
+
       },
        obj:[
          {
@@ -81,10 +80,10 @@ export default {
   },
   methods:{
     getImgList(){
-      parkList(this.seach).then((res)=>{
+      facilitiesList(this.seach).then((res)=>{
         console.log(res)
         if(res.data.code == 200){
-
+          
         }
       })
       this.images=[

@@ -30,8 +30,8 @@
 				<section class="content-box box-style-1 box-2">
 					<div class="zerogrid">
 						<div class="content-box-2">
-							<div class="content_box_2_item" v-for="(item,index) in faciliArr" :key="index">
-                <div class="content_box_2_item_img" :style="{backgroundImage:'url('+item.checkImg+')'}"></div>
+							<div class="content_box_2_item" v-for="(item,index) in faciliArr" :key="index" @click="godefaild(item)">
+                <div class="content_box_2_item_img" :style="{backgroundImage:'url('+item.coverImg+')'}"></div>
                 <div class="content_box_2_item_text">
                 <h3>{{item.name}}</h3>
                 </div>
@@ -75,7 +75,7 @@
 
 <script>
 import { Swipe, SwipeItem,Lazyload } from 'vant';
-import {parkList,facilitiesList} from "../url/api"
+import {parkList,recommendassetsList,facilitiesInfo,touristInfo,peripheryInfo} from "../url/api"
 export default {
   data(){
     return{
@@ -128,6 +128,64 @@ export default {
     }
   },
   methods:{
+    godefaild(item){//详情
+      if(item.type == 1){
+        this.gettouristInfo(item.id)
+      }else if(item.type == 2){
+        this.getfacilitiesInfo(item.id)
+      }else{
+        this.getperipheryInfo(item.id)
+      }
+    },
+    getfacilitiesInfo(id){//查询公园智能设施详情信息
+      let params = {
+        id:id
+      }
+      facilitiesInfo(params).then(res=>{
+        console.log(res)
+        if(res.data.code == 200){
+          this.$router.push({
+            path:"/facilitiesInfo",
+            query:{
+              dataInfo:JSON.stringify(res.data.data)
+            }
+          })
+        }
+      })
+
+    },
+    gettouristInfo(id){//查询公园景点详情信息
+      let params = {
+        id:id
+      }
+      touristInfo(params).then(res=>{
+        console.log(res)
+        if(res.data.code == 200){
+          this.$router.push({
+            path:"/touristInfo",
+            query:{
+              dataInfo:JSON.stringify(res.data.data)
+            }
+          })
+        }
+      })
+    },
+    getperipheryInfo(id){//查询公园周边详情信息
+      let params = {
+        id:id
+      }
+      peripheryInfo(params).then(res=>{
+        console.log(res)
+        if(res.data.code == 200){
+          this.$router.push({
+            path:"/peripheryInfo",
+            query:{
+              dataInfo:JSON.stringify(res.data.data)
+            }
+          })
+        }
+      })
+    },
     getparkList(){//获取公园介绍
       let pamars={
         current:1,
@@ -140,11 +198,10 @@ export default {
         }
       })
     },
-    getfacilitiesList(){//查询智能设施分页列表
+    getrecommendassetsList(){//查询智能设施分页列表
       let pamars={
-        parentId:0,
       }
-      facilitiesList(pamars).then(res=>{
+      recommendassetsList(pamars).then(res=>{
         console.log(res)
         if(res.data.code == 200){
           this.faciliArr = res.data.data
@@ -205,7 +262,7 @@ export default {
   },
   mounted(){
     this.getparkList()
-    this.getfacilitiesList()
+    this.getrecommendassetsList()
     this.getImgList()
     this.setTime()
   }
