@@ -11,4 +11,5 @@ export const toTenementAD = (params) => { return axios.post('/park/park/banner/l
 export const recommendassetsList = (params) => { return axios.post('/park/v1.0/app/park/recommend/assets', params) } //公园内设施推荐列表
 export const facilitiesInfo = (params) => { return axios.post('/park/v1.0/app/facilities/info/' + params.id) } //查询公园智能设施详情信息
 export const touristInfo = (params) => { return axios.post('/park/v1.0/app/tourist/info/' + params.id) } //查询公园景点详情信息
-export const peripheryInfo = (params) => { return axios.post('/park/v1.0/app/periphery/info/{id}' + params.id) } //查询公园周边详情信息
+export const peripheryInfo = (params) => { return axios.post('/park/v1.0/app/periphery/info/' + params.id) } //查询公园周边详情信息
+export const assetsList = (params) => { return axios.post('/park/v1.0/app/park/list/assets', params) } //公园内设施分页列表
