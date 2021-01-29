@@ -14,18 +14,15 @@
             <h6>{{item.title}}</h6>
           </div>
           <div class="content_box4_text1">
-            <div>May 15, 2020</div>
-            <div>20</div>
-            <div>10</div>
+            <div>{{item.sendTime}}</div>
           </div>
-          <div class="content_box4_text2">
+          <!-- <div class="content_box4_text2">
             <h5>Blog title here</h5>
-          </div>
+          </div> -->
           <div class="content_box4_text3">
-            Morbi eget dui elit. In lectus eros, convallis vel dolor vitae, semper sodales risus. Donec convallis maximus neque
-								vel cursus.
+            {{item.content}}
           </div>
-          <div class="content_box4_text4"><a :href="item.content">详情</a></div>
+          <div class="content_box4_text4"><a :href="item.address">详情</a></div>
         </div>
       </div>
 

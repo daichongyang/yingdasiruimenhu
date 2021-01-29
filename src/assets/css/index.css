@@ -222,7 +222,7 @@
 
 .content_box4_text {
     border: 1px solid #e1e1e1;
-    border-top: 0px;
+    /* border-top: 0px; */
 }
 
 .content_box4_img {
